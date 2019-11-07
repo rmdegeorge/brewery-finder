@@ -10,7 +10,7 @@ const languages = [
     name: 'Elm',
     year: 2012
   },
-  ...
+  
 ];
 
 // Teach Autosuggest how to calculate suggestions for any given input value.

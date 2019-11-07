@@ -1,0 +1,14 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d4bc7b;
+  border-radius: 20px;
+  width: 96vw;
+  margin: 2vh 2vw;
+  
+}
+.title {
+  text-align: center;
+}

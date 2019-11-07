@@ -1,5 +1,6 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
+import '../styles/Search.css';
 
 //Array of objects to search 
 const breweries = [
