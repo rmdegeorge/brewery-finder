@@ -1,0 +1,17 @@
+Its a brewery finding app.
+Search:
+  by Name, 
+  by Location
+specify distance?
+return a list of breweries matching search results
+can favorite breweries
+
+will uses www.openbrewerydb.org
+
+would like to add a map function and be able to sort by distance
+  Get Directions button (opens new tab for maps.google.com with the brewery pre-populated)
+
+
+
+functionality I'd like to include is dynamic search results
+  display top search results as you type in search bar.
