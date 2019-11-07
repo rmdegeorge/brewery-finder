@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-class Result extends Component {
+class Brewery extends Component {
   constructor(props) {
     super(props)
   }
   render() {
     return (
-      <div className="Result">
+      <div className="Brewery">
         
       </div>
     );
   }
 }
 
-export default Result;
+export default Brewery;
