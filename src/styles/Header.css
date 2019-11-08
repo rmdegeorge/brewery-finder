@@ -3,11 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #d4bc7ba6;
-  border-radius: 20px;
-  width: 96vw;
-  margin: 2vh 2vw;
-  
+  width: 100vw;
 }
 .title {
   text-align: center;

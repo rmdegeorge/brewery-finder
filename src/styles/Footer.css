@@ -1,9 +1,12 @@
 .Footer {
   display: flex;
-  background-color: #d4bc7ba6;
-  border-radius: 20px;
-  height: 90px;
-  width: 92vw;
-  margin: 2vh 2vw;
+  background-color: #000000;
+  color: #fff;
+  height: 50px;
+  width: 100vw;
   padding: 10px 2vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

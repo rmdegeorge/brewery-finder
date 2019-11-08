@@ -2,12 +2,19 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 75%;
-  padding: 0 0 10px 0;
+  width: 100%;
+  padding: 10px 0 10px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #e9cf86d0;
+ 
 }
 .Navbar > a {
   text-align: center;
   color: #000;
+  /* background-color: #e9cf86d0; */
   text-decoration: none;
   width: 100px;
   height: 24px;

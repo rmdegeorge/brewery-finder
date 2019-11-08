@@ -1,17 +1,18 @@
-Its a brewery finding app.
-Search:
-  by Name, 
-  by Location
-specify distance?
-return a list of breweries matching search results
-can favorite breweries
+My app will be a brewery finding app.  It will have a search
+bar that will allow the user to search by the name of a 
+brewery, or by the location of a brewery. The search results
+will populate using data from www.openbrewerydb.org. The user
+will be able to select results a and save them to a favorites
+list.
 
-will uses www.openbrewerydb.org
 
-would like to add a map function and be able to sort by distance
+
+
+
+
+Possible functionality I'd like to include is dynamic search results, 
+  where it would display top search results as you type in search bar.
+  ~filter results by specific distance from a location
+Would like to add a show on map function and be able to sort by distance
   Get Directions button (opens new tab for maps.google.com with the brewery pre-populated)
-
-
-
-functionality I'd like to include is dynamic search results
-  display top search results as you type in search bar.
+interactive background using particles.js to make it look like bubles in a beer glass.

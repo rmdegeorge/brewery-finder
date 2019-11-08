@@ -5,6 +5,7 @@ import { Particles } from 'react-particles-js';
 import particleOptions from './particles/particles.json';
 import './styles/App.css';
 
+import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './containers/Home';
@@ -20,6 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navbar /> 
         <Header />
   
         <Switch>
@@ -27,6 +29,7 @@ class App extends Component {
           <Route exact path="/favorites" component={Favorites} />
           <Route exact path="/about" component={About} />
         </Switch>
+
         <Footer />
         <Particles className="particles" params={particleOptions} />
       </div>
