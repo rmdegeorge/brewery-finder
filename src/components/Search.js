@@ -1,101 +1,93 @@
-import React from 'react';
-import Autosuggest from 'react-autosuggest';
-import '../styles/Search.css';
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-//Array of objects to search 
-const breweries = [
-  {
-    name: 'C',
-    year: 1972
-  },
-  {
-    name: 'Elm',
-    year: 2012
-  },
-];
+const SearchBarContainer = styled.div`
+  width: 250px;
+  padding: 0px;
+  margin: 10px;
+  border: 1px solid grey;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 1px rgba(0,0,0,.18);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgba(0,0,0,0.73);
+`;
 
-// This is where you tell Autosuggest how to calculate suggestions for a given input value
-const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
+const SearchInput = styled.input`
+width: 100%;
+border: none;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+color: rgba(0,0,0,0.73);
+padding: 10px 5px;
+box-sizing: border-box;
+outline: none;
+`;
 
-  return inputLength == 0 ? [] : breweries.filter(brewery => 
-    brewery.name.toLowerCase().slice(0, inputLength) === inputValue
-    );
-};
+const SearchSuggestionsList = styled.div`
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid grey;
+`;
 
-// When suggestion is clicked, Autosuggest needs to populate the input
-// based on the clicked suggestion. Teach Autosuggest how to calculate the
-// input value for every given suggestion.
-const getSuggestionValue = suggestion => suggestion.name;
+const SearchSuggestion = styled.div`
+  text-align: left;
+  padding: 10px 5px;
+  cursor: pointer;
 
-// This defines how suggestions are rendered
-const renderSuggestion = suggestion => (
-  <div>
-    {suggestion.name}
-  </div>
-);
+  :hover {
+    text-decoration: underline;
+    background-color: rgba(128,128,128,0.20);
+  }
+`;
 
-
-
-
-
-class Search extends React.Component {
-  constructor() {
-    super();
-
-    // Autosuggest is a controlled component.
-    // This means that you need to provide an input value
-    // and an onChange handler that updates this value (see below).
-    // Suggestions also need to be provided to the Autosuggest,
-    // and they are initially empty because the Autosuggest is closed.
-
+class Search extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      value: '',
-      suggestions: []
-    };
+      suggestions: [],
+      searchText: '',
+    }
   }
 
-  onChange = (event, {newValue}) => {
+  handleChange = (event) => {
+    let suggestions = [];
+    if (event.target.value.length > 0) {
+      const regex = new RegExp(`^${event.target.value}`, 'i');
+      suggestions = this.props.items.sort().filter(value => regex.test(value));
+    }
     this.setState({
-      value: newValue
+      suggestions,
+      [event.target.name]: event.target.value,
+    })
+  }
+
+  handleSuggestionSelected = (value) => {
+    this.setState({
+      searchText: value,
+      suggestions: [],
     });
   };
 
-  // Autosuggest will call this function every time you need to update suggestions.
-  // You already implemented this logic above, so just use it.
-  onSuggestionsFetchRequested = ({value}) => {
-    this.setState({
-      suggestions: getSuggestions(value)
-    });
-  };
-
-  // Autosuggest will call this function every time you need to clear suggestions.
-  onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    });
-  };
-
-  render() {
-    const {value, suggestions} = this.state;
-
-    // Autosuggest will pass through all these props to the input.
-    const inputProps = {
-      placeholder: 'Type a Brewery Name',
-      value,
-      onChange: this.onChange
+  handleSuggestions = () => {
+    if (this.state.suggestions.length === 0) {
+      return null;
     }
     return (
-      <Autosuggest 
-      suggestions={suggestions}
-      onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-      onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-      getSuggestionValue={this.getSuggestionValue}
-      renderSuggestion={this.renderSuggestion}
-      inputProps={inputProps}
-      />
+      <SearchSuggestionsList>
+        {this.state.suggestions.map((item) => <SearchSuggestion onClick={() => this.handleSuggestionSelected(item)}>{item}</SearchSuggestion>)}
+      </SearchSuggestionsList>
     )
+  }
+
+  render() {
+    const {searchText} = this.state;
+    return (
+      <SearchBarContainer>
+        <SearchInput onChange={this.handleChange} value={searchText} name="searchText" placeholder="Search" />
+        {this.handleSuggestions()}
+      </SearchBarContainer>
+    );
   }
 }
 

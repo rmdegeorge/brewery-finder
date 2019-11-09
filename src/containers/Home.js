@@ -7,7 +7,7 @@ import '../styles/Home.css';
 function Home(props) {
   return (
     <div className="Home">
-      <Search />
+      <Search items={['Rob', 'Jess', 'Bill']}/>
     </div>
   );
 }
