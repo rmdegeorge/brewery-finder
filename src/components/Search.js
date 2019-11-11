@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { withBreweryData } from '../BreweryDataProvider';
 
 const SearchBarContainer = styled.div`
   width: 250px;
@@ -91,4 +92,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default withBreweryData(Search);

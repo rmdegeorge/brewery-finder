@@ -1,15 +1,33 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Search from '../components/Search';
+import { withBreweryData } from '../BreweryDataProvider';
 
-import '../styles/Home.css';
+const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: 75%;
+  height: 75vh;
+  margin: auto;
+`;
 
-function Home(props) {
-  return (
-    <div className="Home">
-      <Search items={['Rob', 'Jess', 'Bill']}/>
-    </div>
-  );
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    this.props.getAllBreweryData()
+  }
+  render() {
+    return (
+      <HomeContainer>
+        <Search items={this.props.breweryNames}/>
+      </HomeContainer>
+    );
+  }
 }
 
-export default Home;
+export default withBreweryData(Home);

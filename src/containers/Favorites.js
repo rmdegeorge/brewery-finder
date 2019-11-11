@@ -1,4 +1,5 @@
 import React from 'react';
+import { withBreweryData } from '../BreweryDataProvider';
 
 
 function Favorites(props) {
@@ -9,4 +10,4 @@ function Favorites(props) {
   );
 }
 
-export default Favorites;
+export default withBreweryData(Favorites);

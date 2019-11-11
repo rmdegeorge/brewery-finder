@@ -1,13 +1,23 @@
 import React from 'react';
-import '../styles/Header.css';
+import styled from 'styled-components';
 
+const HeaderDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+`;
 
+const Title = styled.h1`
+  text-align: center;
+`;
 function Header(props) {
   return (
-    <div className="Header">
-      <h1 className='title'>This is the Title</h1>
+    <HeaderDiv>
+      <Title>This is the Title</Title>
       
-    </div>
+    </HeaderDiv>
   );
 }
 

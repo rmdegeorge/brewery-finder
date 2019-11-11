@@ -9,4 +9,4 @@ function SearchResults(props) {
   );
 }
 
-export default SearchResults;
+export default withBreweryData(SearchResults);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withBreweryData } from '../BreweryDataProvider';
 
 class Brewery extends Component {
   constructor(props) {
@@ -13,4 +14,4 @@ class Brewery extends Component {
   }
 }
 
-export default Brewery;
+export default withBreweryData(Brewery);

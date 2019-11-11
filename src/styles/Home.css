@@ -1,9 +1,0 @@
-.Home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #fff;
-  width: 75%;
-  height: 75vh;
-  margin: auto;
-}
